@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
-#include "Goat.h"
+#include "Goat23.h"
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
@@ -33,5 +33,24 @@ int main() {
 
 
     return 0;
+}
+
+int main_menu() {
+}
+
+void add_goat(list<Goat> &trip, string names[], string colors[]){
+
+}
+
+void delete_goat(list<Goat> &trip){
+
+}
+
+void display_trip(list<Goat> trip){
+
+}
+
+int select_goat(list<Goat> &trip){
+
 }
 
