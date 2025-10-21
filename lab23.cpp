@@ -72,6 +72,7 @@ void add_goat(list<Goat> &trip, string names[], string colors[]){
 }
 
 void delete_goat(list<Goat> &trip){
+    
 
 }
 
@@ -80,6 +81,15 @@ void display_trip(list<Goat> trip){
 }
 
 int select_goat(list<Goat> &trip){
-
+    int i = 1;
+    for (const auto& g : trip){
+        cout << "[" << i++ << "] " << g.get_name() << ", Age: " << g.get_age() << ", Color: " << g.get_color() << ") \n";
+    }
+    cout << "Select a goat by number --> ";
+    int choice;
+    cin >> choice;
+    if (choice >=1 && choice <= trip.size()){
+        return choice;
+    }
 }
 
