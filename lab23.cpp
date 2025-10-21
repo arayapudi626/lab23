@@ -35,8 +35,8 @@ while(true) {
     int choice = main_menu();
     switch (choice) {
         case 1: add_goat(trip, names, colors); break;
-        case 2: delete_goat(trip); break;
-        case 3: display_trip(trip); break;
+        //case 2: delete_goat(trip); break;
+        //case 3: display_trip(trip); break;
         case 4: return 0;
     }
 }
@@ -60,7 +60,15 @@ int main_menu() {
 }
 
 void add_goat(list<Goat> &trip, string names[], string colors[]){
+    string name = names[rand() % SZ_NAMES];
+    int age = rand() % MAX_AGE + 1;
+    string color = colors[rand() % SZ_COLORS];
 
+    Goat new_goat(name, age, color);
+    trip.push_back(new_goat);
+    trip.sort();
+
+    cout << "Added goat: " << name << ", Age: " << age << ", Color: " << colors << "\n";
 }
 
 void delete_goat(list<Goat> &trip){
