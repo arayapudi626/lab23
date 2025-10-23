@@ -73,7 +73,7 @@ void add_goat(set<Goat> &trip, string names[], string colors[]){
     cout << "Added goat: " << name << "( " << age << ", " << color << " )\n";
 }
 
-int select_goat(list<Goat> &trip){
+int select_goat(set<Goat> &trip){
     int i = 1;
     for (const auto& g : trip){
         cout << "[" << i++ << "] " << g.get_name() << ", ( " << g.get_age() << ", " << g.get_color() << ") \n";
@@ -87,7 +87,7 @@ int select_goat(list<Goat> &trip){
 }
 
 
-void delete_goat(list<Goat> &trip){
+void delete_goat(set<Goat> &trip){
     int count = 1;
     int choice = select_goat(trip);
     for (auto it = trip.begin(); it != trip.end(); it++, count++){
@@ -101,8 +101,8 @@ void delete_goat(list<Goat> &trip){
 
 }
 
-void display_trip(list<Goat> trip){
-    trip.sort();
+void display_trip(set<Goat> trip){
+    //trip.sort();
     int i = 1;
     for (const Goat& g : trip){
         cout << "[" << i++ << "] " << g.get_name() << " ( " << g.get_age() << ", " << g.get_color() << " ) \n";
