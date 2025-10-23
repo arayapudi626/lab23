@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <list>
+#include <set>
 #include <string>
 #include <cstdlib>
 #include <ctime>
@@ -10,15 +10,14 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat> &trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat> trip);
+int select_goat(set<Goat> &trip);
+void delete_goat(set<Goat> &trip);
+void add_goat(set<Goat> &trip, string [], string []);
+void display_trip(set<Goat> trip);
 int main_menu();
 
 int main() {
     srand(time(0));
-    //bool again;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -32,7 +31,7 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
-    list<Goat> trip;
+    set<Goat> trip;
 
 while(true) {
     int choice = main_menu();
@@ -62,14 +61,14 @@ int main_menu() {
     cout << "Invalid choice. Try again. \n";
 }
 
-void add_goat(list<Goat> &trip, string names[], string colors[]){
+void add_goat(set<Goat> &trip, string names[], string colors[]){
     string name = names[rand() % SZ_NAMES];
     int age = rand() % MAX_AGE + 1;
     string color = colors[rand() % SZ_COLORS];
 
-    Goat new_goat(name, age, color);
-    trip.push_back(new_goat);
-    trip.sort();
+    Goat g(name, age, color);
+    trip.insert(g);
+    //trip.sort(g);
 
     cout << "Added goat: " << name << "( " << age << ", " << color << " )\n";
 }
